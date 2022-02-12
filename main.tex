@@ -1,0 +1,151 @@
+\documentclass[10pt, letterpaper, twocolumn]{article}
+
+% ==================================================
+%                    Configuration
+% ==================================================
+
+% === General ===
+\usepackage[utf8]{inputenc}                                             % Set input encoding
+\usepackage[english]{babel}                                             % Set input language
+\usepackage{textcomp}                                                   % Extended text companion fonts
+\usepackage{subfiles}                                                   % Allow sub files
+\usepackage{url}                                                        % Allow urls
+\usepackage{hyperref}                                                   % Allow hyperlinks
+\usepackage{comment}                                                    % Allow multiline comments
+\usepackage{eurosym}                                                    % Allow euro symbol
+\usepackage{gensymb}                                                    % Allow generic symbols
+\usepackage{soul}                                                       % Allow underlining and striking out
+\usepackage{appendix}                                                   % Allow appendices
+\usepackage{geometry}                                                   % Allow document customization
+\geometry{                                                              % Set document margins
+    a4paper,
+    top = 19mm,
+    left = 13mm,
+    right = 13mm,
+    bottom = 43mm,
+}
+
+% === Header & Footer ===
+\usepackage{fancyhdr}                                                   % Allow header & footer customization
+\pagestyle{fancy}                                                       % Set page style
+\fancyhf{}                                                              % Remove existing header & footer
+\lhead{}                                                                % Set left header
+\chead{}                                                                % Set center header
+\rhead{}                                                                % Set right header
+\lfoot{}                                                                % Set left footer
+\cfoot{\thepage}                                                        % Set center footer
+\rfoot{}                                                                % Set right footer
+\renewcommand{\headrulewidth}{0pt}                                      % Remove header line
+\renewcommand{\footrulewidth}{0pt}                                      % Remove footer line
+
+% === Title, Chapters & Sections ===
+\usepackage{authblk}                                                    % Allow multiple authors
+\usepackage{titlesec}                                                   % Allow title customization
+
+\titleformat{\section}
+    {\centering\large\bfseries}{\thesection}{12pt}{}                    % Set section style
+\renewcommand{\thesection}{\Roman{section}}                             % Set section numbering
+
+\titleformat{\subsection}
+    {\normalsize\itshape}{\thesubsection.}{4pt}{}                       % Set subsection style
+\renewcommand{\thesubsection}{\Alph{subsection}}                        % Set subsection numbering
+
+\titleformat{\subsubsection}
+    {\small\bfseries}{\thesubsubsection}{4pt}{}                         % Set subsubsection style
+\titlespacing{\subsubsection}{-4pt}{12pt}{0pt}                          % Set subsubsection spacing
+\renewcommand{\thesubsubsection}{}                                      % Set subsubsection numbering
+
+% === Abstract ===
+\renewenvironment{abstract}{\bfseries\textit{\abstractname}--- \relax}  % Set abstract section style
+
+% === Formatting ===
+\usepackage{parskip}                                                    % Set vertical space between sections
+
+% === Citations ===
+\usepackage{natbib}                                                     % Set citation style (apa)
+\bibliographystyle{apalike}                                             % Set bibliography style (apa)
+
+% === Figures & Tables ===
+\usepackage{graphicx}                                                   % Allow images
+\usepackage{subcaption}                                                 % Allow subcaptions
+\usepackage{wrapfig}                                                    % Allow figure text wrapping
+
+\usepackage{tabularx}                                                   % Enhanced tables
+\usepackage{booktabs}                                                   % Enhanced tables
+\usepackage{lscape}                                                     % Allow landscape tables
+\usepackage{multirow}                                                   % Allow multiple rows
+\usepackage{longtable}                                                  % Allow multipage tables
+
+\usepackage{float}                                                      % Enhanced placement
+\usepackage[format=plain, labelfont={it}, textfont=it]{caption}         % Set caption style
+
+% === Mathematics ===
+\usepackage{amsmath}                                                    % Enhanced mathematical formulas
+\usepackage{amssymb}                                                    % Extended mathematical symbols
+\usepackage{amsfonts}                                                   % Extended mathematical fonts
+
+% === Code ===
+\usepackage{minted}                                                     % Allow code highlighting
+
+% === Colors ===
+\usepackage{xcolor}                                                     % Allow colors
+
+% ==================================================
+%                       Title
+% ==================================================
+
+\title{Latex Journal Template}
+
+\author[1]{John Doe}
+\author[1]{Jane Doe}
+\affil[1]{Institution}
+
+\date{\today}
+
+% ==================================================
+%                      Document
+% ==================================================
+
+\begin{document}
+
+% === Title ===
+\maketitle
+
+% === Abstract ===
+\begin{abstract}\input{Sec/0_abstract}\end{abstract}
+
+% === Chapters ===
+\section{Introduction}
+\label{sec:introduction}
+\input{Sec/1_introduction}
+
+\section{Theory}
+\label{sec:theory}
+\input{Sec/2_theory}
+
+\section{Methods}
+\label{sec:methods}
+\input{Sec/3_methods}
+
+\section{Results}
+\label{sec:results}
+\input{Sec/4_results}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\input{Sec/5_conclusion}
+
+% === References ===
+\bibliography{references.bib}
+
+% === Appendix ===
+\onecolumn
+\begin{appendices}
+
+\section{Appendix A}
+\label{app:appendix_a}
+\input{App/1_appendix_a}
+
+\end{appendices}
+
+\end{document}
